@@ -58,7 +58,7 @@ function getEdges(cells, d) {
   return ndarray(edges, [(ptr/2)|0, 2])
 }
 
-function getCrossingWeights(edges, values, signs) {
+function getCrossingWeights(edges, values, signs, level) {
   var edata     = edges.data
   var numEdges  = edges.shape[0]
   var weights   = pool.mallocDouble(numEdges)
@@ -73,7 +73,7 @@ function getCrossingWeights(edges, values, signs) {
     var vb = values[b]
     edata[2*ptr]     = a
     edata[2*ptr+1]   = b
-    weights[ptr++] = vb / (vb - va)
+    weights[ptr++]   = (vb - level) / (vb - va)
   }
   edges.shape[0] = ptr
   return ndarray(weights, [ptr])
@@ -127,7 +127,11 @@ function extractContour(cells, values, level, d) {
   //Count number of cells
   var numCells = cells.length
   if(numCells === 0) {
-    return
+    return {
+      cells:         [],
+      vertexIds:     [],
+      vertexWeights: []
+    }
   }
 
   //Read in vertex signs
@@ -135,7 +139,7 @@ function extractContour(cells, values, level, d) {
 
   //First get 1-skeleton, find all crossings
   var edges   = getEdges(cells, d)
-  var weights = getCrossingWeights(edges, values, vertexSigns)
+  var weights = getCrossingWeights(edges, values, vertexSigns, +level)
 
   //Build vertex cascade to speed up binary search
   var vcascade = getCascade(edges, values.length|0)
