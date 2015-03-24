@@ -21,7 +21,7 @@ function getSigns(values, level) {
   var numVerts    = values.length
   var vertexSigns = pool.mallocUint8(numVerts)
   for(var i=0; i<numVerts; ++i) {
-    vertexSigns[i] = (values[i] < 0)|0
+    vertexSigns[i] = (values[i] < level)|0
   }
   return vertexSigns
 }
