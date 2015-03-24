@@ -120,13 +120,10 @@ function extractContour(cells, values, level, d) {
   if(typeof d === 'undefined') {
     d = getDimension(cells)
   }
-  if(d <= 1) {
-    return
-  }
 
   //Count number of cells
   var numCells = cells.length
-  if(numCells === 0) {
+  if(numCells === 0 || d < 1) {
     return {
       cells:         [],
       vertexIds:     [],
