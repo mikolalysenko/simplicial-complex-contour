@@ -1,6 +1,6 @@
 {
   "name": "simplicial-complex-contour",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Extract a contour on a simplicial complex",
   "main": "contour.js",
   "directories": {
@@ -14,7 +14,7 @@
     "typedarray-pool": "^1.1.0"
   },
   "devDependencies": {
-    "tape": "^3.0.3", 
+    "tape": "^3.0.3",
     "bunny": "^1.0.1"
   },
   "scripts": {
