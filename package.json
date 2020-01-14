@@ -9,9 +9,9 @@
   },
   "dependencies": {
     "marching-simplex-table": "^1.0.0",
-    "ndarray": "^1.0.15",
-    "ndarray-sort": "^1.0.0",
-    "typedarray-pool": "^1.1.0"
+    "ndarray": "^1.0.19",
+    "ndarray-sort": "^1.0.1",
+    "typedarray-pool": "^1.2.0"
   },
   "devDependencies": {
     "tape": "^3.0.3",
