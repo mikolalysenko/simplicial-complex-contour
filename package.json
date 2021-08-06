@@ -8,7 +8,6 @@
     "test": "test"
   },
   "dependencies": {
-    "marching-simplex-table": "^1.0.0",
     "ndarray": "^1.0.15",
     "ndarray-sort": "^1.0.0",
     "typedarray-pool": "^1.1.0"
